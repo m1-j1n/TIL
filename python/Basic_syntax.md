@@ -9,15 +9,22 @@
   
 ## Data Type
 1. 값 (피연산자)
-- Numeric Type: int, float, complex
-- Sequence Type: list, tuple, range
-- Text Sequence Type: str
-- Non-Sequence Type: set, dict
-- 기타: Boolean, None, Function
+   - Numeric Type: int, float, complex
+   - Sequence Type: list, tuple, range
+   - Text Sequence Type: str
+   - Non-Sequence Type: set, dict
+   - 기타: Boolean, None, Function
 2. 연산자
-- 산술 연산자
-- 연산자 우선순위 : ** -> - -> * / // % -> + -
-
+   - 산술 연산자
+   - 연산자 우선순위 : ** > - > * / // % > + -
+3. 할당
+   - 할당 연산자(=)를 통해 오른쪽에 있는 표현식을 평가해 메모리 주소를 생성
+     - 존재하지 않는 변수라면 새 변수 생성
+     - 존재했던 변수라면 기존 변수를 재사용해서 변수에 있는 메모리 주소를 변경
+4. 객체
+   - 타입을 갖는 메모리 주소 내의 값
+   - 실제 변수에는 주소값이 들어가 있음
+  
 ### Numeric Type
 1. int
    - 진수 표현
@@ -28,23 +35,46 @@
     ```
 2. float
    - 지수 표현 방식
-  ```python
-  number = 314e-2
-  print(number)
-  ```
-     - 부동소수점 에러 
-       - decimal 모듈을 활용해 정확성 보장 가능
+    ```python
+    number = 314e-2
+    print(number)
+    ```
+  - 부동소수점 에러 
+    - 유한정밀도: 컴퓨터 메모리 용량이 한정되어 있고, 한 숫자에 대해 저장하는 용량이 제한됨됨
+    - decimal 모듈을 활용해 정확성 보장 가능
+
 ### Sequence Type
 **특징**
 - 순서: 값들이 순서대로 저장
 - 인덱싱: 각 값에 고유한 번호를 가지고 있음, 특정 위치의 값을 선택하거나 수정 가능
+  - Python은 음수 인덱스 존재
 - 슬라이싱: 부분적인 값을 추출 가능
+  - 시작과 끝 인덱스를 지정하여 해당 범위의 값을 포함하는 새로운 시퀀스 생성
 - 길이: len()를 통해 저장된 값의 개수를 구할 수 있음
 - 반복: 저장된 값들을 반복적으로 처리할 수 있음
 
 1. str
    - 문자들의 순서가 있는 *변경 불가능한* 시퀀스 자료형
    - Escape sequence
-     - \사용하여 탈출 가능
+     - \n : 즐 바꿈
+     - \t : 텝
+     - \\ : 벡 슬래시
+     - \' : 작은 따옴표
+     - \" : 큰 따옴표표
    - String Interpolation
      - f-string
+      ```python
+      print(f'Debugginh {bugs}')
+      ```
+
+### 기타
+1. Style Guide
+   - 직관적인 변수명
+   - 한 줄의 길이는 79자로 제한
+   - 문자, _를 활용해 이름 작성
+   - 함수 정의나 클래스 정의 등의 블록 사이에는 빈줄 추가
+2. 변수명 규칙
+   - 영문 알파벳, 언더스코어, 숫자
+   - 대소문자 구분
+   - 예약어 불가
+   - 숫자로 시작 불가
